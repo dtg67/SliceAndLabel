@@ -18,6 +18,8 @@
 # Lines 25 -> 27 is where we import PIL. This stands for python imaging library
 # https://pillow.readthedocs.io/en/3.0.x/index.html. This module will be used for writing the text on the final image.
 
+# This is for a Pycharms commit and push test
+
 import cv2
 from os import rename, listdir
 import os
