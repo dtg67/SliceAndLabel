@@ -18,7 +18,7 @@ def alphabet2letter(iterator):
 
 
 pic_path = '/Users/dgomez/Desktop/pics'
-font_path = '/Users/dgomez/Desktop/font/cmurnm.ttf'
+font_path = '/Users/dgomez/Desktop/font/cmunrm.ttf'
 
 os.chdir(pic_path)
 
@@ -27,7 +27,6 @@ picture_list = [f for f in os.listdir('.') if os.path.isfile(os.path.join('.', f
 if '.DS_Store' in picture_list:
     picture_list.remove('.DS_Store')
 
-picture_list = sorted(picture_list)
 border = [0, 1, 0, 0]
 y = 136
 h = 140
