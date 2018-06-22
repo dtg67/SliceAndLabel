@@ -7,18 +7,18 @@ from PIL import ImageFont
 from PIL import ImageDraw
 
 
-def alphabet2letter(itr):
+def alphabet2letter(iterator):
 
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
                 'V', 'W', 'X', 'Y', 'Z']
     if itr < 26:
-        return alphabet[itr]
+        return alphabet[iterator]
     elif itr >= 26:
-        return alphabet[math.floor(itr/26)-1] + alphabet[itr % 26]
-
+        return alphabet[math.floor(itr/26)-1] + alphabet[iterator % 26]
 
 
 pic_path = '/Users/dgomez/Desktop/pics'
+font_path = '/Users/dgomez/Desktop/font/cmurnm.ttf'
 
 os.chdir(pic_path)
 
@@ -44,7 +44,7 @@ itr = 0
 run = '3'
 letter = alphabet2letter(itr)
 
-font = ImageFont.truetype('/Users/dgomez/Desktop/font/cmunrm.ttf', 16)
+font = ImageFont.truetype(font_path, 16)
 
 FinalImagePath = '/Users/dgomez/Desktop/Final.tiff'
 stackedImageOG = cv2.imread(picture_list[0])
