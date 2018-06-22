@@ -6,12 +6,14 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-def Alphabets(itr):
+
+def alphabet2letter(itr):
+
     alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
                 'V', 'W', 'X', 'Y', 'Z']
-    if(itr < 26):
+    if itr < 26:
         return alphabet[itr]
-    elif(itr >= 26):
+    elif itr >= 26:
         return alphabet[math.floor(itr/26)-1] + alphabet[itr % 26]
 
 
@@ -25,7 +27,7 @@ picture_list = [f for f in os.listdir('.') if os.path.isfile(os.path.join('.', f
 if '.DS_Store' in picture_list:
     picture_list.remove('.DS_Store')
 
-
+picture_list = sorted(picture_list)
 border = [0, 1, 0, 0]
 y = 136
 h = 140
@@ -40,7 +42,7 @@ pix = (xspace, yspace)
 color = (255, 255, 255)
 itr = 0
 run = '3'
-letter = Alphabets(itr)
+letter = alphabet2letter(itr)
 
 font = ImageFont.truetype('/Users/dgomez/Desktop/font/cmunrm.ttf', 16)
 
@@ -71,5 +73,5 @@ for i in range(len(picture_list)-1):
     draw.text(pix, run+letter, color, font=font)
     itr += 1
     pix = (pix[0], pix[1]+h+border[1])
-    letter = Alphabets(itr)
+    letter = alphabet2letter(itr)
     writeImage.save(FinalImagePath)
