@@ -27,6 +27,7 @@ picture_list = [f for f in os.listdir('.') if os.path.isfile(os.path.join('.', f
 if '.DS_Store' in picture_list:
     picture_list.remove('.DS_Store')
 
+picture_list = sorted(picture_list, key=lambda x: float(x.split('t')[1]))
 border = [0, 1, 0, 0]
 y = 136
 h = 140
@@ -57,6 +58,7 @@ drawImageOG = ImageDraw.Draw(writeImageOG)
 drawImageOG.text(pix, run+letter, color, font=font)
 writeImageOG.save(FinalImagePath)
 itr += 1
+letter = alphabet2letter(itr)
 pix = (pix[0], pix[1]+h+border[1])
 
 for i in range(len(picture_list)-1):
